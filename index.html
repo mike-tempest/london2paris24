@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, minimum-scale=1.0">
 
         <title>London to Paris in 24 hours</title>
-        
+
         <script type="text/javascript" src="http://fast.fonts.net/jsapi/6f355a37-47f6-4e91-b561-5dd9d44cd8d3.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
         <link rel="stylesheet" href="css/style.min.css">
     </head>
     <body>
@@ -19,30 +20,32 @@
                 <li class="nav__item"><a href="#">The Charity</a></li>
                 <li class="nav__item"><a href="#">Sponsor Me</a></li>
             </ul>
+            <a href="#" class="menu-icon">
+                <span class="menu-icon__text">Show Menu</span>
+            </a>
         </nav>
         <div class="grid">
+            <div class="grid__item one-half" ui-view>
+            </div>
         </div>
 
-        <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-        <script src="js/vendor/underscore.min.js"></script>
-        <script src="js/vendor/backbone.min.js"></script>
 
         <script>
-            var FundsCollection = Backbone.Collection.extend({
-                url: 'https://api.justgiving.com/67711df5/v1/fundraising/pages/Michael-Tempest/',
-                sync: function(method, model, options) {
-                    options.timeout = 10000; // required, or the application won't pick up on 404 responses
-                    options.dataType = "json";
-                    return Backbone.sync(method, model, options);
-                },
-                parse: function(response) {
-            console.log('response', response)
-                    return response;
-                }
-            });
-            
-            var funds = new FundsCollection();
-            funds.fetch();
+            // var FundsCollection = Backbone.Collection.extend({
+            //     url: 'https://api.justgiving.com/67711df5/v1/fundraising/pages/Michael-Tempest/',
+            //     sync: function(method, model, options) {
+            //         options.timeout = 10000; // required, or the application won't pick up on 404 responses
+            //         options.dataType = "json";
+            //         return Backbone.sync(method, model, options);
+            //     },
+            //     parse: function(response) {
+            // console.log('response', response)
+            //         return response;
+            //     }
+            // });
+
+            // var funds = new FundsCollection();
+            // funds.fetch();
 
 
         </script>
